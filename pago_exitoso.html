@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago Exitoso</title>
+    <style>
+        /* Reset básico para garantizar consistencia entre navegadores */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Evitar el desplazamiento de la pantalla */
+            position: relative;
+        }
+
+        .container {
+            background-color: white;
+            text-align: center;
+            padding: 40px;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .image-container {
+            margin-bottom: 30px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none; /* Remover el subrayado del enlace */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilo para el enlace dentro del botón */
+        button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        /* Fondo de carros moviéndose a través de toda la pantalla */
+        .car-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .cars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: moveCars 20s linear infinite;
+            bottom: 0;
+        }
+
+        .cars img {
+            width: 200px; /* Ajusta el tamaño del auto */
+            margin-right: 30px;
+            flex-shrink: 0;
+        }
+
+        .row {
+            display: flex;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .row:nth-child(1) {
+            top: 10%;
+            animation: moveCarsRow 15s linear infinite;
+        }
+
+        .row:nth-child(2) {
+            top: 40%;
+            animation: moveCarsRow 18s linear infinite;
+        }
+
+        .row:nth-child(3) {
+            top: 70%;
+            animation: moveCarsRow 20s linear infinite;
+        }
+
+        @keyframes moveCarsRow {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Pago Exitoso!</h1>
+        <div class="image-container">
+            <!-- Aquí puedes colocar una imagen o dejarlo vacío -->
+            <img src="https://th.bing.com/th/id/R.dcb2e4870b8433e803036b03143cbc43?rik=zaJVoBpYlZEcCA&riu=http%3a%2f%2fcliparts.co%2fcliparts%2fpc5%2fo78%2fpc5o78d9i.png&ehk=4n8%2f%2bzuxzusakg%2fPMSPTJrz3Hbl6YnAcn79OKn8rVfA%3d&risl=1&pid=ImgRaw&r=0" alt="Imagen de éxito">
+        </div>
+        <!-- Botón para volver -->
+        <button><a href="index.html">Volver al inicio</a></button>
+    </div>
+
+    <!-- Fondo de carros moviéndose -->
+    <div class="car-background">
+        <div class="row">
+            <img src="img/marca.png" alt="Carro 1">
+            <img src="img/marca.png" alt="Carro 1">
+            <img src="img/marca.png" alt="Carro 1">
+            <img src="img/marca.png" alt="Carro 1">
+            <img src="img/marca.png" alt="Carro 1">
+            <img src="img/marca.png" alt="Carro 1">
+            <img src="img/marca.png" alt="Carro 1">
+           
+        </div>
+        <div class="row">
+            <img src="img/marca.png" alt="Carro 1">
+            <img src="img/marca.png" alt="Carro 1">
+            <img src="img/marca.png" alt="Carro 1">
+            <img src="img/marca.png" alt="Carro 1">
+            <img src="img/marca.png" alt="Carro 1">
+            
+        </div>
+        <div class="row">
+            <img src="img/marca.png" alt="Carro 1">
+            <img src="img/marca.png" alt="Carro 1">
+            <img src="img/marca.png" alt="Carro 1">
+            <img src="img/marca.png" alt="Carro 1">
+            <img src="img/marca.png" alt="Carro 1">
+
+        </div>
+    </div>
+</body>
+</html>

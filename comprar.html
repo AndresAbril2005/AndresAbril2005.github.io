@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Pago</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f1f1f1;
+            overflow: hidden; /* Evitar el desplazamiento de la pantalla */
+            position: relative;
+        }
+
+        /* Estilo del contenedor de la tarjeta */
+        .payment-card {
+            background-color: #ffffff;
+            width: 350px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            text-align: center;
+            z-index: 2; /* Para que la tarjeta se muestre sobre los carros */
+        }
+
+        .payment-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        /* Tarjeta de crédito */
+        .card-wrapper {
+            background: linear-gradient(135deg, #4e54c8, #8f94fb);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .card-number {
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .card-holder, .card-expiry {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .card-expiry {
+            font-size: 0.9rem;
+        }
+
+        .card-logo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2rem;
+        }
+
+        /* Formulario de pago */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 1rem;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            color: #2c3e50;
+            transition: border 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #3498db;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        /* Estilo de los iconos */
+        .card-logo i {
+            color: white;
+        }
+
+        /* Fondo de carros moviéndose a través de toda la pantalla */
+        .car-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .cars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: moveCars 20s linear infinite;
+            bottom: 0;
+        }
+
+        .cars img {
+            width: 200px; /* Ajusta el tamaño del auto */
+            margin-right: 30px;
+            flex-shrink: 0;
+        }
+
+        .row {
+            display: flex;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .row:nth-child(1) {
+            top: 10%;
+            animation: moveCarsRow 12s linear infinite;
+        }
+
+        .row:nth-child(2) {
+            top: 40%;
+            animation: moveCarsRow 13s linear infinite;
+        }
+
+        .row:nth-child(3) {
+            top: 70%;
+            animation: moveCarsRow 14s linear infinite;
+        }
+
+        @keyframes moveCarsRow {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Fondo de carros -->
+<div class="car-background">
+    <div class="row">
+        <div class="cars">
+            <img src="img/marca.png" alt="Car 1">
+            <img src="img/marca.png" alt="Car 1">
+            <img src="img/marca.png" alt="Car 1">
+        
+       
+            <img src="img/marca.png" alt="Car 1">
+            <img src="img/marca.png" alt="Car 1">
+            <img src="img/marca.png" alt="Car 1">
+        </div>
+    </div>
+    <div class="row">
+        <div class="cars">
+            
+            <img src="img/marca.png" alt="Car 1">
+            <img src="img/marca.png" alt="Car 1">
+         
+            <img src="img/marca.png" alt="Car 1">
+            <img src="img/marca.png" alt="Car 1">
+   
+            <img src="img/marca.png" alt="Car 1">
+        </div>
+    </div>
+    <div class="row">
+        <div class="cars">
+            <img src="img/marca.png" alt="Car 1">
+            
+         
+            <img src="img/marca.png" alt="Car 1">
+            <img src="img/marca.png" alt="Car 1">
+            <img src="img/marca.png" alt="Car 1">
+            <img src="img/marca.png" alt="Car 1">
+
+
+       
+        </div>
+    </div>
+</div>
+
+<!-- Contenedor del formulario de pago -->
+<div class="payment-card">
+    <h2>Formulario de Pago</h2>
+
+    <!-- Tarjeta de crédito -->
+    <div class="card-wrapper">
+        <div class="card-logo">
+            <i class="fas fa-credit-card"></i>
+        </div>
+        <div class="card-number">**** **** **** 1234</div>
+        <div class="card-holder">Titular: Juan Pérez</div>
+        <div class="card-expiry">Expira: 12/25</div>
+    </div>
+
+    <!-- Formulario de pago -->
+    <form action="#" method="post">
+        <!-- Campo nombre en tarjeta -->
+        <div class="form-group">
+            <label for="card-holder-name">Nombre en la tarjeta</label>
+            <input type="text" id="card-holder-name" name="card-holder-name" placeholder="Juan Pérez" required>
+        </div>
+
+        <!-- Campo número de tarjeta -->
+        <div class="form-group">
+            <label for="card-number">Número de tarjeta</label>
+            <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
+        </div>
+
+        <!-- Campo fecha de expiración -->
+        <div class="form-group">
+            <label for="expiry-date">Fecha de expiración</label>
+            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+        </div>
+
+        <!-- Campo código de seguridad (CVV) -->
+        <div class="form-group">
+            <label for="cvv">Código de seguridad (CVV)</label>
+            <input type="text" id="cvv" name="cvv" placeholder="123" required>
+        </div>
+
+        <!-- Botón de pago -->
+        <div class="form-group">
+          
+            <a href="pago_exitoso.html" class="btn">Pagar Ahora</a>
+        </div>
+    </form>
+</div>
+
+<!-- Iconos (Font Awesome para los logos de tarjeta de crédito) -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
